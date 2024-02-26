@@ -34,3 +34,12 @@ def generate_random_invoice_dict() -> dict:
     "interest": _generate_fine_or_interest(),
     "tags": ["scheduled"]
 }
+
+def generate_transaction_dict(invoice: dict) -> dict:
+    return {
+    "amount": invoice["amount"],
+    "receiver_id": "6341320293482496",
+    "description": "Transaction",
+    "external_id": invoice["id"],
+    "tags": ["provider"]
+}
