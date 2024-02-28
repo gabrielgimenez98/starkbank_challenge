@@ -9,20 +9,20 @@ class StarkBankService():
         starkbank.language = "en-US"
         project = starkbank.Project(
             environment="sandbox",
-            id="4814656505905152",
+            id="4787617438629888",
             private_key=private_key_content
         )
 
         starkbank.user = project
 
-    def create_invoices(invoice_list: list[Invoice]):
+    def create_invoices(self, invoice_list: list[Invoice]):
         invoices = starkbank.invoice.create(
             invoices=invoice_list
         )
 
         return invoices
     
-    def make_transaction(transaction: Transaction):
+    def make_transaction(self, transaction: Transaction):
         transactions = starkbank.transaction.create(
             transactions=transaction
         )

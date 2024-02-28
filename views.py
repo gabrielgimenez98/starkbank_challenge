@@ -35,12 +35,13 @@ def generate_invoices():
     print("Terminado em:", datetime.datetime.now())
 
 @app.post("/transaction")
-def generate_transaction(request: Invoice):
+def generate_transaction(request: dict):
 
-    payload = request.json()
+    payload = request["event"]["log"]["invoice"]
+    print(payload)
     starkbank_service = StarkBankService()
     print("invoice a ser transferida ",payload)
-    random.randint(8,12)
+    random.randint(1,2)
     transaction = generate_transaction_dict(payload)
     response = starkbank_service.make_transaction(transaction)
 

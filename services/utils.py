@@ -28,8 +28,8 @@ def generate_random_invoice_dict() -> dict:
     "amount": _generate_amount(),
     "name": "Gabriel Gimenez",
     "tax_id": "012.345.678-90",
-    "due": datetime.datetime.now(),
-    "expiration": datetime.timedelta(hours=3).total_seconds(),
+    "due": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
+    "expiration": 1000,
     "fine": _generate_fine_or_interest(),
     "interest": _generate_fine_or_interest(),
     "tags": ["scheduled"]
